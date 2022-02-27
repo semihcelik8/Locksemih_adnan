@@ -2,6 +2,7 @@ import os
 import keyboard
 import wmi
 import subprocess
+import psutil
 from tkinter import *
 from tkinter import ttk
 
@@ -17,14 +18,22 @@ closeflag = 0
 
 def check_system():
     global flag
-    for process in f.Win32_Process():
-        if "notepad.exe" == process.Name:
-            print("Application is Running")
+    for p in psutil.process_iter(attrs=['pid', 'name']):
+        if "notepad.exe" in (p.info['name']).lower():
+            print("Notepad is running")
             flag = 1
-            break
-
-    if flag == 0:
-        print("Application is not Running")
+        else:
+            print("Notepad.exe is not running")
+        if "taskmgr.exe" in (p.info['name']).lower():
+            print("Task Manager  is running")
+            flag = 1
+        else:
+            print("Task Manager is not running")
+        if "python-3.10.2-amd64.exe" in (p.info['name']).lower():
+            print("Python-unnistal is runnning")
+            flag = 1
+        else:
+             print("Python-unistall is not running")
 
 def close_file():
     os.system('TASKKILL /F /IM notepad.exe')
@@ -56,7 +65,7 @@ def login_form():
 
 def lock():
     global flag
-    if keyboard.is_pressed('t'):
+    if keyboard.is_pressed('f12'):
         os.system('TASKKILL /F /IM notepad.exe')
         flag = 0
 
