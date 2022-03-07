@@ -8,8 +8,8 @@ from tkinter import ttk
 
 f = wmi.WMI()
 
-file_path = "C:\\Users\\özer çelik\\Desktop\\lock2\\closer.py"
-prog_name = "C:\\Program Files\\Python310\\python.exe"
+file_path = "closer.pyw"
+prog_name = "pythonw.exe"
 
 p = subprocess.Popen([prog_name, file_path])
 
