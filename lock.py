@@ -22,10 +22,8 @@ def check_system():
             flag = 1
         if "taskmgr.exe" in (p.info['name']).lower():
             flag = 1
-
         if "python-3.10.2-amd64.exe" in (p.info['name']).lower():
             flag = 1
-
         if "processhacker.exe" in (p.info['name']).lower():
             flag = 1
 
