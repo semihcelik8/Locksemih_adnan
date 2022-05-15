@@ -29,7 +29,7 @@ def password_correction():
     if os.path.exists("E:\\"):
         with open("E:\\password.txt", "r") as password_file:
             password_check = password_file.read()
-            if password_check == "KU$G_p9Jaq3x2r@^":
+            if password_check == "password goes here":
                 flag = 2
                 print("Welcome Semih")
                 pygame.mixer.init()
